@@ -8,6 +8,7 @@ import {
 import { supabase } from "@/lib/supabase";
 import Button from "@/components/ui/atoms/button/Button";
 import TextInput from "@/components/ui/molecules/text-input/TextInput";
+import { useNavigate } from "react-router-dom";
 
 export function SignupForm() {
   const {
@@ -17,6 +18,7 @@ export function SignupForm() {
   } = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
   });
+  const navigate = useNavigate();
 
   async function onSubmit(
     data: SignupFormData
@@ -34,6 +36,8 @@ export function SignupForm() {
 
     if (error) {
       alert(error.message);
+    } else {
+      navigate("/login");
     }
   }
 

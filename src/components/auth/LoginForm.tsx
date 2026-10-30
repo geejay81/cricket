@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod/src/index.js";
 import { useForm } from "react-hook-form";
 import Button from "@/components/ui/atoms/button/Button";
 import TextInput from "@/components/ui/molecules/text-input/TextInput";
+import { useNavigate } from "react-router-dom";
 
 export function LoginForm() {
   const {
@@ -13,6 +14,7 @@ export function LoginForm() {
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
   });
+  const navigate = useNavigate();
 
   async function onSubmit(
     data: LoginFormData
@@ -25,6 +27,8 @@ export function LoginForm() {
 
     if (error) {
       alert(error.message);
+    } else {
+      navigate("/");
     }
   }
 
