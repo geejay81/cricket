@@ -6,7 +6,8 @@ import {
 } from "@/schemas/auth";
 
 import { supabase } from "@/lib/supabase";
-import Button from "@/components/ui/button/Button";
+import Button from "@/components/ui/atoms/button/Button";
+import TextInput from "@/components/ui/molecules/text-input/TextInput";
 
 export function SignupForm() {
   const {
@@ -38,24 +39,32 @@ export function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        {...register("username")}
+      
+      <TextInput
+        label="Username"
+        name="username"
         placeholder="Username"
+        register={register}
+        error={errors.username?.message}
       />
-      <p>{errors.username?.message}</p>
 
-      <input
-        {...register("email")}
+      <TextInput
+        label="Email"
+        name="email"
+        type="email"
         placeholder="Email"
+        register={register}
+        error={errors.email?.message}
       />
-      <p>{errors.email?.message}</p>
 
-      <input
-        {...register("password")}
+      <TextInput
+        label="Password"
+        name="password"
         type="password"
         placeholder="Password"
+        register={register}
+        error={errors.password?.message}
       />
-      <p>{errors.password?.message}</p>
 
       <Button
         type="submit"

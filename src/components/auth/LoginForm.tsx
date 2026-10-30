@@ -2,7 +2,8 @@ import { supabase } from "@/lib/supabase";
 import { loginSchema, type LoginFormData } from "@/schemas/auth";
 import { zodResolver } from "@hookform/resolvers/zod/src/index.js";
 import { useForm } from "react-hook-form";
-import Button from "@/components/ui/button/Button";
+import Button from "@/components/ui/atoms/button/Button";
+import TextInput from "@/components/ui/molecules/text-input/TextInput";
 
 export function LoginForm() {
   const {
@@ -29,14 +30,21 @@ export function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("email")} />
-      <p>{errors.email?.message}</p>
-
-      <input
-        {...register("password")}
-        type="password"
+      <TextInput
+        label="Email"
+        name="email"
+        type="email"
+        register={register}
+        error={errors.email?.message}
       />
-      <p>{errors.password?.message}</p>
+
+      <TextInput
+        label="Password"
+        name="password"
+        type="password"
+        register={register}
+        error={errors.password?.message}
+      />
 
       <Button
         type="submit"
