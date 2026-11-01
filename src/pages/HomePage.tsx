@@ -28,7 +28,7 @@ const HomePage = () => {
 
        <Button
          onClick={() => supabase.auth.signOut()}
-         mode="warning"
+         variant="warning"
        >
          Sign Out
        </Button>
