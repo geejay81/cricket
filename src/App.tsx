@@ -4,10 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import LoginPage from "@/pages/LoginPage";
 import SignupPage from "@/pages/SignupPage";
 import HomePage from "@/pages/HomePage";
-import Header from "@/components/ui/organisms/header/Header";
 import { AuthGuard } from "@/guards/AuthGuard";
 import AccountPage from "@/pages/AccountPage";
-import NavigationBar from "@/components/ui/organisms/nav/NavigationBar";
 
 function App() {
 
