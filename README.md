@@ -1,4 +1,24 @@
-# React + TypeScript + Vite
+# Cricket
+
+A React, TypeScript, and Vite dice-cricket game. The app is published to GitHub Pages at <https://geejay81.github.io/cricket/>.
+
+## Local development
+
+1. Copy `.env.example` to `.env.local` and add the Supabase project URL and anon key.
+2. Run `pnpm install` and `pnpm dev`.
+3. Run `pnpm build` to type-check and create the production site in `dist/`.
+
+## GitHub Pages deployment
+
+The GitHub Actions workflow in `.github/workflows/deploy.yml` builds and publishes the site whenever changes are pushed to `main` (or when manually triggered). It uses the repository name as Vite's production base path and hash-based routing, so routes such as login continue to work on Pages without a server-side rewrite.
+
+To enable deployment:
+
+1. In the GitHub repository, open **Settings → Pages** and set the build/deployment source to **GitHub Actions**.
+2. Add repository Actions secrets named `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
+3. In Supabase Auth URL configuration, allow `https://geejay81.github.io/cricket/` as the site URL/redirect URL.
+
+The Supabase anon key is intended for browser use; protect data with Supabase Row Level Security policies. Never put a service-role key in the frontend or GitHub Pages build.# React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

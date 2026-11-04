@@ -1,6 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import { loginSchema, type LoginFormData } from "@/schemas/auth";
-import { zodResolver } from "@hookform/resolvers/zod/src/index.js";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Button from "@/components/ui/atoms/button/Button";
 import TextInput from "@/components/ui/molecules/text-input/TextInput";
