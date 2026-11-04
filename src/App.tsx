@@ -13,9 +13,6 @@ function App() {
 
   return (
     <WidthContainer>
-      <Header pageTitle="Cricket app" />
-      <NavigationBar />
-
       <main className="container mx-auto px-4 py-8">
         <Routes>
           <Route
